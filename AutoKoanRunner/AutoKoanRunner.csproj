@@ -51,6 +51,10 @@
       <Project>{C2C1413F-222B-4F84-8E89-32BC11F79ED2}</Project>
       <Name>AutoKoanRunner.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CSharp\CSharp.csproj">
+      <Project>{981750a0-f5ca-42ba-84a1-fe52656b778f}</Project>
+      <Name>CSharp</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
