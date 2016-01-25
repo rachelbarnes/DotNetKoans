@@ -7,7 +7,7 @@ namespace DotNetKoans.CSharp
         [Koan(1)]
         public void NilIsNotAnObject()
         {
-            Assert.True(typeof(object).IsAssignableFrom(null)); //not everything is an object
+            Assert.False(typeof(object).IsAssignableFrom(null)); //not everything is an object
         }
 
         [Koan(2)]
@@ -17,17 +17,20 @@ namespace DotNetKoans.CSharp
             //Don't be confused by the code below. It is using Anonymous Delegates which we will
             //cover later on. 
             object nothing = null;
-            Assert.Throws(typeof(FillMeIn), delegate() { nothing.ToString(); });
+            Assert.Throws(typeof(System.NullReferenceException), delegate() { nothing.ToString(); });
 
+                   //my comment: the throw command/usage indicates something that will be "thrown away" due to it eing an exception
+            
             //What's the message of the exception? What substring or pattern could you test
             //against in order to have a good idea of what the string is?
+
             try
             {
                 nothing.ToString();
             }
             catch (System.Exception ex)
             {
-                Assert.Contains(FILL_ME_IN as string, ex.Message);
+                Assert.Contains("object", ex.Message);
             }
         }
 
@@ -35,21 +38,21 @@ namespace DotNetKoans.CSharp
         public void CheckingThatAnObjectIsNull()
         {
             object obj = null;
-            Assert.True(obj == FILL_ME_IN);
+            Assert.True(obj == null);
         }
 
         [Koan(4)]
         public void ABetterWayToCheckThatAnObjectIsNull()
         {
             object obj = null;
-            Assert.Null(FILL_ME_IN);
+            Assert.Null(obj);
         }
 
         [Koan(5)]
         public void AWayNotToCheckThatAnObjectIsNull()
         {
             object obj = null;
-            Assert.True(obj.Equals(null));
+            Assert.True(obj == null);
         }
     }
 }
